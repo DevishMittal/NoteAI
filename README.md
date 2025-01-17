@@ -10,6 +10,11 @@ A feature-rich note-taking application built with PyQt5 that supports voice inpu
 - File save and load functionality
 - User-friendly toolbar interface
 
+- **Future Enhancements**:
+  - AI-assisted autocomplete for faster note-taking.
+  - Voice-to-text functionality using a local LLM.
+  - Pen-paper style mode for a more realistic writing experience.
+
 ## Prerequisites
 
 - Python 3.8 or higher
@@ -40,26 +45,6 @@ pip install -r requirements.txt
 - Visit [Vosk Models](https://alphacephei.com/vosk/models)
 - Download the Indian English model (vosk-model-small-en-in-0.4) or any any other model according to the requirements.
 - Extract the model to the `models` directory in your project folder
-
-## Project Structure
-```
-note_app/
-│
-├── main.py                 # Application entry point
-├── ui/
-│   ├── main_window.py     # Main UI Window
-│   ├── toolbar.py         # Toolbar features
-│
-├── features/
-│   ├── text_formatting.py # Text formatting logic
-│   ├── voice_input.py     # Voice input logic
-│   ├── file_handle.py     # File operations logic
-│
-├── assets/
-├── models/                # Directory for Vosk model
-├── requirements.txt
-└── README.md
-```
 
 ## Configuration
 
