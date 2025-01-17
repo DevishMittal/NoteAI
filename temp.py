@@ -8,7 +8,7 @@ class NoteTakingApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Note Taking App")
-        self.setGeometry(200, 200, 800, 600)
+        self.setGeometry(500, 300, 1920, 1080)
         self.init_ui()
 
     def init_ui(self):
@@ -32,9 +32,10 @@ class NoteTakingApp(QMainWindow):
     def start_voice_input(self):
         self.voice_button.setText("Listening...")
         self.voice_button.setEnabled(False)
+        
 
         # Load Vosk model
-        model = Model(r"D:\NoteAI\model\vosk-model-small-en-in-0.4\vosk-model-small-en-in-0.4")  # Assumes you downloaded a Vosk model into the "model" folder
+        model = Model(r"D:\vosk-model-small-hi-0.22\vosk-model-small-hi-0.22")  # Assumes you downloaded a Vosk model into the "model" folder
         recognizer = KaldiRecognizer(model, 16000)
         audio = pyaudio.PyAudio()
         stream = audio.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8192)
