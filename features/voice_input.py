@@ -29,7 +29,8 @@ class VoiceInput:
                 if self.recognizer.AcceptWaveform(data):
                     result = self.recognizer.Result()
                     recognized_text = eval(result)["text"]
-                    break  # Exit after capturing one phrase
+                    break
+                      # Exit after capturing one phrase
         except Exception as e:
             print(f"Voice input error: {e}")
         finally:

@@ -10,7 +10,7 @@ class MainWindow(QMainWindow):
         self.setGeometry(500, 300, 1920, 1080)
 
         # Initialize voice input with the Vosk model path
-        self.voice_input = VoiceInput(r"D:\NoteAI\model\vosk-model-small-en-in-0.4\vosk-model-small-en-in-0.4")  # Update the model path as needed
+        self.voice_input = VoiceInput(r"D:\vosk-model-en-in-0.5\vosk-model-en-in-0.5")  # Update the model path as needed
         self.init_ui()
 
     def init_ui(self):
