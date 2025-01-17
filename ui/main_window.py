@@ -1,6 +1,8 @@
-from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QTextEdit, QWidget, QPushButton
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QTextEdit, QWidget, QPushButton, QFileDialog
 from features.voice_input import VoiceInput
 from ui.toolbar import Toolbar
+from features.file_handle import save_note, load_note  # Import the functions from file_handle.py
 
 
 class MainWindow(QMainWindow):
@@ -30,6 +32,16 @@ class MainWindow(QMainWindow):
         self.voice_button.clicked.connect(self.start_voice_input)
         layout.addWidget(self.voice_button)
 
+        # Save button
+        self.save_button = QPushButton("Save Note")
+        self.save_button.clicked.connect(self.save_note)
+        layout.addWidget(self.save_button)
+
+        # Load button
+        self.load_button = QPushButton("Load Note")
+        self.load_button.clicked.connect(self.load_note)
+        layout.addWidget(self.load_button)
+
         # Central widget
         container = QWidget()
         container.setLayout(layout)
@@ -50,7 +62,28 @@ class MainWindow(QMainWindow):
             self.voice_button.setText("Start Voice Input")
             self.voice_button.setEnabled(True)
 
+    def save_note(self):
+        """Opens a file dialog to save the note."""
+        file_path, _ = QFileDialog.getSaveFileName(self, "Save Note", "", "Text Files (*.txt)")
+        if file_path:
+            content = self.text_edit.toPlainText()
+            save_note(file_path, content)  # Save the note using the save_note function from file_handle.py
+
+    def load_note(self):
+        """Opens a file dialog to load a note."""
+        file_path, _ = QFileDialog.getOpenFileName(self, "Open Note", "", "Text Files (*.txt)")
+        if file_path:
+            content = load_note(file_path)  # Load the note using the load_note function from file_handle.py
+            self.text_edit.setText(content)
+
     def closeEvent(self, event):
         """Ensure voice input resources are released when the window is closed."""
         self.voice_input.close()
         super().closeEvent(event)
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    main_window = MainWindow()
+    main_window.show()
+    sys.exit(app.exec_())
