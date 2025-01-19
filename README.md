@@ -42,15 +42,6 @@ Download the latest version from the [Releases page](link-to-your-releases-page)
    - Click "Save Note" to save your current note
    - Click "Load Note" to open an existing note
 
-## Requirements
-
-Create a `requirements.txt` file with the following dependencies:
-```
-PyQt5
-vosk
-pyaudio
-```
-
 ## Contributing
 
 Feel free to fork the repository and submit pull requests for any improvements.
