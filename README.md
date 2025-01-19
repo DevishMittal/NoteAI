@@ -18,7 +18,7 @@ A feature-rich note-taking application built with PyQt5 that supports voice inpu
 ## Download and Installation
 
 ### Latest Release
-Download the latest version from the [Releases page](link-to-your-releases-page)
+Download the latest version from the [Releases page](https://github.com/DevishMittal/NoteAI/releases)
 
 ### Installation Steps
 1. Download `NoteAI-v1.0.0-windows.zip`
