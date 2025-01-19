@@ -1,9 +1,21 @@
 import sys
+import os
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QTextEdit, QWidget, QPushButton, QFileDialog
 from features.voice_input import VoiceInput
 from ui.toolbar import Toolbar
 from features.file_handle import save_note, load_note  # Import the functions from file_handle.py
 
+def get_model_path():
+    """Get the appropriate path to the Vosk model whether running as script or frozen exe"""
+    if getattr(sys, 'frozen', False):
+        # Running as compiled exe
+        base_path = sys._MEIPASS
+    else:
+        # Running as script
+        base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    model_path = os.path.join(base_path, 'model', 'vosk-model-small-en-in-0.4', 'vosk-model-small-en-in-0.4')
+    return model_path
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -12,7 +24,8 @@ class MainWindow(QMainWindow):
         self.setGeometry(500, 300, 1920, 1080)
 
         # Initialize voice input with the Vosk model path
-        self.voice_input = VoiceInput(r"D:\vosk-model-en-in-0.5\vosk-model-en-in-0.5")  # Update the model path as needed
+        model_path = get_model_path()
+        self.voice_input = VoiceInput(model_path)
         self.init_ui()
 
     def init_ui(self):
