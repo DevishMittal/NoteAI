@@ -15,51 +15,15 @@ A feature-rich note-taking application built with PyQt5 that supports voice inpu
   - Voice-to-text functionality using a local LLM.
   - Pen-paper style mode for a more realistic writing experience.
 
-## Prerequisites
+## Download and Installation
 
-- Python 3.8 or higher
-- PyQt5
-- Vosk
-- PyAudio
+### Latest Release
+Download the latest version from the [Releases page](link-to-your-releases-page)
 
-## Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/DevishMittal/NoteAI.git
-cd NoteAI
-```
-
-2. Create a virtual environment (recommended):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-```
-
-3. Install required packages:
-```bash
-pip install -r requirements.txt
-```
-
-4. Download the Vosk model:
-- Visit [Vosk Models](https://alphacephei.com/vosk/models)
-- Download the Indian English model (vosk-model-small-en-in-0.4) or any any other model according to the requirements.
-- Extract the model to the `models` directory in your project folder
-
-## Configuration
-
-1. Update the Vosk model path in `main_window.py`:
-```python
-self.voice_input = VoiceInput(r"absolute path of your downloaded model")
-```
-
-## Running the Application
-
-1. Ensure your virtual environment is activated
-2. Run the application:
-```bash
-python main.py
-```
+### Installation Steps
+1. Download `NoteAI-v1.0.0-windows.zip`
+2. Extract the zip file to your desired location
+3. Run `NoteAI.exe`
 
 ## Usage
 
